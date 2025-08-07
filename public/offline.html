@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitnessPro - Offline</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+    
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, #f04438 0%, #334f8d 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(240, 68, 56, 0.3);
+    }
+    
+    .icon svg {
+      width: 60px;
+      height: 60px;
+      color: white;
+    }
+    
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #f04438 0%, #334f8d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: 18px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .features {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 32px;
+    }
+    
+    .features h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #374151;
+    }
+    
+    .features ul {
+      list-style: none;
+      text-align: left;
+    }
+    
+    .features li {
+      padding: 12px 0;
+      color: #4b5563;
+      display: flex;
+      align-items: center;
+    }
+    
+    .features li:before {
+      content: "✓";
+      color: #10b981;
+      font-weight: bold;
+      margin-right: 12px;
+      font-size: 18px;
+    }
+    
+    .retry-button {
+      background: linear-gradient(135deg, #f04438 0%, #334f8d 100%);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .retry-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(240, 68, 56, 0.3);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      
+      .features {
+        background: #1e293b;
+      }
+      
+      .features h2 {
+        color: #e2e8f0;
+      }
+      
+      .features li {
+        color: #cbd5e1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"></path>
+      </svg>
+    </div>
+    
+    <h1>You're Offline</h1>
+    <p>Don't worry! FitnessPro works offline. You can still access your cached workouts and track your progress.</p>
+    
+    <div class="features">
+      <h2>Available Offline Features:</h2>
+      <ul>
+        <li>View your recent workouts</li>
+        <li>Access exercise library</li>
+        <li>Track basic progress</li>
+        <li>Log workouts (will sync when online)</li>
+      </ul>
+    </div>
+    
+    <button class="retry-button" onclick="window.location.reload()">
+      Try Again
+    </button>
+  </div>
+  
+  <script>
+    // Check connection status periodically
+    setInterval(() => {
+      if (navigator.onLine) {
+        window.location.reload();
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
